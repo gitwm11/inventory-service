@@ -4,6 +4,8 @@ import ma.xproce.inventoryservice.dao.entities.Creator;
 import ma.xproce.inventoryservice.dao.entities.Video;
 import ma.xproce.inventoryservice.dao.repositories.CreatorRepository;
 import ma.xproce.inventoryservice.dao.repositories.VideoRepository;
+import ma.xproce.inventoryservice.service.CreatorManager;
+import ma.xproce.inventoryservice.service.VideoManager;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -19,8 +21,8 @@ public class InventoryServiceApplication {
 		SpringApplication.run(InventoryServiceApplication.class, args);
 	}
 
-	@Bean
-	public CommandLineRunner start(CreatorRepository creatorRepository, VideoRepository videoRepository)
+//	@Bean
+/*	public CommandLineRunner startDao(CreatorRepository creatorRepository, VideoRepository videoRepository)
 	{
 		return args -> {
 
@@ -61,6 +63,54 @@ public class InventoryServiceApplication {
 
 			creatorRepository.saveAll(List.of(creator1,creator2,creator3));
 
+		};
+	}
+*/
+	@Bean
+	public CommandLineRunner startService(CreatorManager creatorManager, VideoManager videoManager)
+	{
+		return args -> {
+
+			Video video4 = new Video();
+			video4.setName("video4");
+			video4.setUrl("www.youtube.com/video4");
+			video4.setDescription("content 4");
+			video4.setDatePublication(new Date());
+
+
+			Video video5 = new Video();
+			video5.setName("video5");
+			video5.setUrl("www.youtube.com/video5");
+			video5.setDescription("content 5");
+			video5.setDatePublication(new Date());
+
+			Video video6 = new Video();
+			video6.setName("video6");
+			video6.setUrl("www.youtube.com/video6");
+			video6.setDescription("content 6");
+
+			videoManager.addVideo(video4);
+			videoManager.addVideo(video5);
+			videoManager.addVideo(video6);
+
+			Creator creator4 = new Creator();
+			creator4.setName("creator4");
+			creator4.setEmail("creator4@xproce.ma");
+			creator4.setVideos(List.of(video4));
+
+			Creator creator5 = new Creator();
+			creator5.setName("creator5");
+			creator5.setEmail("creator5@xproce.ma");
+			creator5.setVideos(List.of(video5));
+
+			Creator creator6 = new Creator();
+			creator6.setName("creator6");
+			creator6.setEmail("creator6@xproce.ma");
+			creator6.setVideos(List.of(video6));
+
+			creatorManager.addCreator(creator4);
+			creatorManager.addCreator(creator5);
+			creatorManager.addCreator(creator6);
 		};
 	}
 
