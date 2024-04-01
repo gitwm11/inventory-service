@@ -71,11 +71,13 @@ public class InventoryServiceApplication {
 	{
 		return args -> {
 
+
 			Video video4 = new Video();
 			video4.setName("video4");
 			video4.setUrl("www.youtube.com/video4");
 			video4.setDescription("content 4");
 			video4.setDatePublication(new Date());
+			video4.setCreator(null);
 
 
 			Video video5 = new Video();
@@ -83,11 +85,14 @@ public class InventoryServiceApplication {
 			video5.setUrl("www.youtube.com/video5");
 			video5.setDescription("content 5");
 			video5.setDatePublication(new Date());
+			video5.setCreator(null);
 
 			Video video6 = new Video();
 			video6.setName("video6");
 			video6.setUrl("www.youtube.com/video6");
 			video6.setDescription("content 6");
+			video6.setDatePublication(new Date());
+			video6.setCreator(null);
 
 			videoManager.addVideo(video4);
 			videoManager.addVideo(video5);

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>List Videos</title>
+</head>
+<body>
+
+<table class="table ">
+    <thead>
+    <tr>
+        <td>Ref</td>
+        <td>Name</td>
+        <td>Description</td>
+        <td>Url</td>
+        <td>DatePublication</td>
+        <td>Creator</td>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each="v:${listVideos}">
+        <td th:text="${v.getId()}"></td>
+        <td th:text="${v.getName()}"></td>
+        <td th:text="${v.getDescription()}"></td>
+        <td th:text="${v.getUrl()}"></td>
+        <td th:text="${v.getDatePublication()}"></td>
+        <td th:text="${v.getCreator()}"></td>
+
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
