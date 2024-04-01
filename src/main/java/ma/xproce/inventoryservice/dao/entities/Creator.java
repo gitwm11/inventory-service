@@ -11,7 +11,7 @@ import java.util.Collection;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "videos")
+@Table(name = "creators")
 public class Creator {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
